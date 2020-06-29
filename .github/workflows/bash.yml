@@ -12,13 +12,13 @@ jobs:
         run: |
           wget -O ./GeoLite2-City.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=${LICENSE_KEY}&suffix=tar.gz"
           tar zxvf ./GeoLite2-City.tar.gz -C .
-          mv ./GeoLite2-City_*/GeoLite2-City.mmdb ./City.mmdb
+          mv ./GeoLite2-City_*/GeoLite2-City.mmdb ./GeoLite2-City.mmdb
           wget -O ./GeoLite2-ASN.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${LICENSE_KEY}&suffix=tar.gz"
           tar zxvf ./GeoLite2-ASN.tar.gz -C .
-          mv ./GeoLite2-ASN_*/GeoLite2-ASN.mmdb ./ASN.mmdb
+          mv ./GeoLite2-ASN_*/GeoLite2-ASN.mmdb ./GeoLite2-ASN.mmdb
           wget -O ./GeoLite2-Country.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${LICENSE_KEY}&suffix=tar.gz"
           tar zxvf ./GeoLite2-Country.tar.gz -C .
-          mv ./GeoLite2-Country_*/GeoLite2-Country.mmdb ./Country.mmdb
+          mv ./GeoLite2-Country_*/GeoLite2-Country.mmdb ./GeoLite2-Country.mmdb
 
       - name: Upload Release
         uses: softprops/action-gh-release@v1
@@ -27,6 +27,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
-            City.mmdb
-            ASN.mmdb
-            Country.mmdb
+            GeoLite2-City.mmdb
+            GeoLite2-ASN.mmdb
+            GeoLite2-Country.mmdb
