@@ -16,6 +16,9 @@ jobs:
           wget -O ./GeoLite2-ASN.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${LICENSE_KEY}&suffix=tar.gz"
           tar zxvf ./GeoLite2-ASN.tar.gz -C .
           mv ./GeoLite2-ASN_*/GeoLite2-ASN.mmdb ./ASN.mmdb
+          wget -O ./GeoLite2-Country.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${LICENSE_KEY}&suffix=tar.gz"
+          tar zxvf ./GeoLite2-Country.tar.gz -C .
+          mv ./GeoLite2-Country_*/GeoLite2-Country.mmdb ./Country.mmdb
 
       - name: Upload Release
         uses: softprops/action-gh-release@v1
@@ -26,3 +29,4 @@ jobs:
           files: |
             City.mmdb
             ASN.mmdb
+            Country.mmdb
