@@ -47,7 +47,7 @@ jobs:
           mv ./GeoLite2-Country_*/GeoLite2-Country.mmdb ./GeoLite2-Country.mmdb
           
       - name: Delete Older
-      - uses: dev-drprasad/delete-older-releases@v0.1.0
+        uses: dev-drprasad/delete-older-releases@v0.1.0
         with:
           keep_latest: 2
         env:
