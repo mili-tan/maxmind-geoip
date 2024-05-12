@@ -72,3 +72,9 @@ jobs:
           keep_latest: 5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Deploy
+        env: 
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          curl "https://api.render.com/deploy/srv-cd8vfjen6mpi3erbf4i0?key=${DEPLOY_KEY}"
